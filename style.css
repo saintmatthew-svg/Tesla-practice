@@ -104,15 +104,16 @@ section a{
     border-radius: 5px;
     cursor: pointer;
 } 
-first-buttons .order-btn,
+.order-btn,
+.verify-btn,
 .order-models:hover{
-    background-color: blue;
+    background-color: #3c65eb;
 }
 .view-history-btn,
 .learn-more-btn{
     color: rgb(90, 90, 90);
 }
-.verify-more-btn{
+.verify-btn{
     padding: 10px 25px;
     font-size: 18px;
     background-color: rgb(44, 92, 182);
@@ -155,7 +156,7 @@ first-buttons .order-btn,
         .slide {
             min-width: 100%;
             position: relative;
-            padding: 80px 40px; /* Spacing at top and sides */
+            padding: 80px 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -177,7 +178,7 @@ first-buttons .order-btn,
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 20px 20px 20px; /* Additional top spacing for content */
+            padding: 20px 20px 20px 20px;
         }
         
         .slide-subtitle {
@@ -224,7 +225,7 @@ first-buttons .order-btn,
         }
         
         .btn-primary:hover {
-            background-color: #f1f1f1;
+            background-color: #3c65eb;
         }
         
         .btn-secondary {
@@ -264,7 +265,7 @@ first-buttons .order-btn,
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: transparent;
+            background-color: white;
             color: white;
             border: none;
             font-size: 2rem;
@@ -287,7 +288,6 @@ first-buttons .order-btn,
             right: 40px;
         }
 
-/* Responsive font sizes */
 @media (max-width: 768px) {
     html {
         font-size: 14px;
@@ -312,48 +312,4 @@ first-buttons .order-btn,
         padding: 8px 16px !important;
         font-size: 0.9rem !important;
     }
-}
-
-/* Ensure all elements scale proportionally */
-img, video {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Prevent layout breaks on zoom */
-.tesla-carousel, .slider, .slide {
-    min-height: 100vh;
-}
-
-/* Keep header fixed and properly scaled */
-header {
-    transform: scale(1);
-    transform-origin: top left;
-}
-
-/* Add this at the end of your style.css file */
-.first-sec,
-section {
-    background-size: cover;
-    background-attachment: scroll; /* Changed from default to scroll */
-    background-position: center center;
-    background-repeat: no-repeat;
-    transform-origin: top left;
-}
-
-/* Ensure video scales with zoom */
-.video-container video {
-    width: 100%;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-}
-
-/* For carousel images */
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
 }

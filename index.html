@@ -154,8 +154,8 @@
         <div class="content">
             <h1>America Heros</h1>
             <p>$1,000 off for military, first responders, teachers and students.</p>
-            <div class="buttons">
-                <button class="verify-more-btn">Verify Now</button>
+            <div class="second-buttons">
+                <button class="verify-btn">Verify Now</button>
             </div>
         </div>
     </section>
@@ -184,7 +184,7 @@
 
     <footer style="background-color: #000; color: #fff; padding: 2rem; font-family: Arial, sans-serif;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    <!-- Disclaimers section -->
+    
     <div style="margin-bottom: 2rem; font-size: 0.8rem; line-height: 1.5;">
       <p>
         1 Model S and Model X included only when purchased through inventory and must be model year 2025. Frost Blue Metallic excluded. New vehicles and U.S. only. Subject to availability. The cost of the color upgrade will be removed from the final price prior to delivery.
@@ -197,7 +197,6 @@
       </p>
     </div>
 
-    <!-- Footer menu -->
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; border-top: 1px solid #333; padding-top: 1rem;">
       <div style="margin-bottom: 1rem;">
         <span>Tesla © 2025</span>
@@ -228,7 +227,6 @@
         function updateSlider() {
             slider.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            // Update dots
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentIndex);
             });
@@ -249,15 +247,12 @@
             updateSlider();
         }
         
-        // Event listeners
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
         
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => goToSlide(index));
         });
-        
-        // Auto-slide (optional)
         setInterval(nextSlide, 7000);
     </script>
 </body>
