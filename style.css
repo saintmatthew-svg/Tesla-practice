@@ -1,0 +1,356 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    color: #ffffff;
+    font-family: 'M PLUS 1', sans-serif;
+}
+.desktop{
+    display: none;
+}
+@media (min-width: 1000px) {
+    .desktop{
+        display: initial;
+    }
+}
+header{
+    color: white;
+    display: grid;
+    grid-template-columns: auto 2fr auto;
+    padding: 5px 20px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+a.logo{
+    height: 20px;
+    width: 100px;
+    color: inherit;
+}
+header a{
+    color: inherit;
+}
+header nav a{
+    text-decoration: none;
+    padding: 5px 10px;
+}
+header nav.center{
+    text-align: center;
+}
+header nav.right{
+    text-align: right;
+}
+.first-sec{
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+section{
+    grid-column: 10px;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+}
+.first-content{
+    font-size: xx-large;
+    width: 100%;
+    height: 100vh;
+    padding-top: 15vh;
+    padding-bottom: 55vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: max-content auto;
+}
+section .content{
+    font-size: xx-large;
+    width: 100%;
+    height: 100vh;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+    text-align: center;
+    display: grid;
+    grid-template-rows: max-content auto min-content;
+}
+section h1{
+    font-size: 5rem;
+}
+section a{
+    color: inherit;
+}
+
+.order-btn,
+.order-models{
+    padding: 10px 25px;
+    font-size: 18px;
+    background-color: rgb(44, 92, 182);
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.view-history-btn,
+.learn-more-btn{
+    padding: 10px 25px;
+    font-size: 18px;
+    background-color: #ffffff;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+first-buttons .order-btn,
+.order-models:hover{
+    background-color: blue;
+}
+.view-history-btn,
+.learn-more-btn{
+    color: rgb(90, 90, 90);
+}
+.verify-more-btn{
+    padding: 10px 25px;
+    font-size: 18px;
+    background-color: rgb(44, 92, 182);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+        
+.tesla-carousel {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+            padding: 80px 40px; /* Spacing at top and sides */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        
+        .slide-content {
+            text-align: center;
+            color: white;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px 20px 20px; /* Additional top spacing for content */
+        }
+        
+        .slide-subtitle {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .slide-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+        
+        .slide-price {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .slide-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: black;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        
+        .slider-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: white;
+        }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+        
+        .slider-btn:hover {
+            opacity: 1;
+        }
+        
+        .prev {
+            left: 40px;
+        }
+        
+        .next {
+            right: 40px;
+        }
+
+/* Responsive font sizes */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    section h1, .slide-title {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+    
+    section h1, .slide-title {
+        font-size: 2rem !important;
+    }
+    
+    .btn, .order-btn, .view-history-btn, 
+    .order-models, .learn-more-btn, .verify-more-btn {
+        padding: 8px 16px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Ensure all elements scale proportionally */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent layout breaks on zoom */
+.tesla-carousel, .slider, .slide {
+    min-height: 100vh;
+}
+
+/* Keep header fixed and properly scaled */
+header {
+    transform: scale(1);
+    transform-origin: top left;
+}
+
+/* Add this at the end of your style.css file */
+.first-sec,
+section {
+    background-size: cover;
+    background-attachment: scroll; /* Changed from default to scroll */
+    background-position: center center;
+    background-repeat: no-repeat;
+    transform-origin: top left;
+}
+
+/* Ensure video scales with zoom */
+.video-container video {
+    width: 100%;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+/* For carousel images */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
