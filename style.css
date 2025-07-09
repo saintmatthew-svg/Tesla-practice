@@ -266,14 +266,14 @@ section a{
             top: 50%;
             transform: translateY(-50%);
             background-color: white;
-            color: white;
+            color: black;
             border: none;
-            font-size: 2rem;
+            font-size: 1rem;
             cursor: pointer;
             padding: 1rem;
             opacity: 0.7;
             transition: opacity 0.3s;
-            z-index: 10;
+            z-index: 1;
         }
         
         .slider-btn:hover {
