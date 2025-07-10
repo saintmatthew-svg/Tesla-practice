@@ -184,48 +184,63 @@
     </section>
 
     <section class="section-container carousel-section">
-  <div class="carousel">
-    <div class="carousel-track">
+    <div class="carousel">
+        <div class="carousel-track">
 
-      <div class="slide">
-        <img src="images/Homepage-Solar-Panels.avif" alt="Solar Panels">
-        <div class="slide-content">
-          <h2>Solar Panels</h2>
-          <p>Use Solar Energy to Power Your Home and Charge Your Tesla</p>
-          <div class="buttons">
-            <button class="blue">Order Now</button>
-            <button class="white">Learn More</button>
-          </div>
+        <div class="slide">
+            <img src="images/Homepage-Solar-Panels.avif" alt="Solar Panels">
+            <div class="slide-content">
+            <h2>Solar Panels</h2>
+            <p>Use Solar Energy to Power Your Home and Charge Your Tesla</p>
+            <div class="buttons">
+                <button class="blue">Order Now</button>
+                <button class="white">Learn More</button>
+            </div>
+            </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <img src="images/Homepage-Card-Powerwall-Desktop.avif" alt="Powerwall">
-        <div class="slide-content">
-          <h2>Powerwall</h2>
-          <p>Keep Your Lights On During Outages</p>
-          <div class="buttons">
-            <button class="blue">Order Now</button>
-            <button class="white">Learn More</button>
-          </div>
+        <div class="slide">
+            <img src="images/Homepage-Card-Powerwall-Desktop.avif" alt="Powerwall">
+            <div class="slide-content">
+            <h2>Powerwall</h2>
+            <p>Keep Your Lights On During Outages</p>
+            <div class="buttons">
+                <button class="blue">Order Now</button>
+                <button class="white">Learn More</button>
+            </div>
+            </div>
         </div>
-      </div>
 
-      <div class="slide">
-        <img src="images/Homepage-Solar-Roof.avif" alt="Solar Roof">
-        <div class="slide-content">
-          <h2>Solar Roof</h2>
-          <p>Generate Clean Energy With Your Roof</p>
-          <div class="buttons">
-            <button class="blue">Order Now</button>
-            <button class="white">Learn More</button>
-          </div>
+        <div class="slide">
+            <img src="images/Homepage-Solar-Roof.avif" alt="Solar Roof">
+            <div class="slide-content">
+            <h2>Solar Roof</h2>
+            <p>Generate Clean Energy With Your Roof</p>
+            <div class="buttons">
+                <button class="blue">Order Now</button>
+                <button class="white">Learn More</button>
+            </div>
+            </div>
         </div>
-      </div>
+
+        <div class="slide">
+            <img src="images/Homepage-Card-Megapack-Desktop (1).avif" alt="Solar Roof">
+            <div class="slide-content">
+            <h2>Megapack</h2>
+            <p>Massive Batteries for Massive Energy Support</p>
+            <div class="buttons">
+                <button class="blue">Order Now</button>
+                <button class="white">Learn More</button>
+            </div>
+            </div>
+        </div>
+        
+        </div>
     </div>
 
     <div class="dotss">
       <span class="dot active"></span>
+      <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
@@ -265,70 +280,69 @@
   </div>
 </footer>
 
-    <script>
-        const slider = document.querySelector('.slider');
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.slider-dot');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        
-        let currentIndex = 0;
-        const slideCount = slides.length;
-        
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-        
-        function goToSlide(index) {
-            currentIndex = index;
-            updateSlider();
-        }
-        
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slideCount;
-            updateSlider();
-        }
-        
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-            updateSlider();
-        }
-        
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+<script>
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    
+    function updateSlider() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
         
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => goToSlide(index));
+            dot.classList.toggle('active', index === currentIndex);
         });
-        setInterval(nextSlide, 7000);
+    }
+    
+    function goToSlide(index) {
+        currentIndex = index;
+        updateSlider();
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+    }
+    
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+    });
+    setInterval(nextSlide, 7000);
 
-        const track = document.querySelector('.carousel-track');
-        const dotss = document.querySelectorAll('.dot');
-        let currentSlide = 0;
+    const track = document.querySelector('.carousel-track');
+    const dots2 = document.querySelectorAll('.carousel-section .dot');
+    let currentSlide = 0;
 
-        function updateSlide(index) {
+    function updateSlide(index) {
         track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
+        dots2.forEach(dot => dot.classList.remove('active'));
+        dots2[index].classList.add('active');
     }
 
-        dots.forEach((dot, i) => {
+    dots2.forEach((dot, i) => {
         dot.addEventListener('click', () => {
             currentSlide = i;
             updateSlide(currentSlide);
         });
     });
 
-  // Optional auto-slide every 5 seconds
     setInterval(() => {
-        currentSlide = (currentSlide + 1) % dotss.length;
+        currentSlide = (currentSlide + 1) % dots2.length;
         updateSlide(currentSlide);
     }, 5000);
+</script>    
 
-    </script>
 </body>
 </html>
