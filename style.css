@@ -504,3 +504,30 @@ footer {
     border-left: none !important;
     border-right: none !important;
 }
+
+.carousel-section .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.carousel-section .slider-btn:hover {
+    opacity: 1;
+}
+
+.carousel-section .prev {
+    left: 40px;
+}
+
+.carousel-section .next {
+    right: 40px;
+}
