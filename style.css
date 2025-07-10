@@ -122,6 +122,11 @@ section a{
     cursor: pointer;
 }
 
+.verify-section {
+    padding-top: 5vh !important;
+    transform: translateY(-20px);
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -470,4 +475,32 @@ button.white {
 .section-container .tesla-carousel,
 .section-container .carousel {
   padding: 20px;
+}
+
+.section-container {
+    border-bottom: 10px solid white;
+    border-top: 10px solid white;
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+}
+
+.first-sec,
+.first-sec + .section-container {
+    border-left: none;
+    border-right: none;
+}
+
+.video-container,
+.tesla-carousel,
+.carousel-section,
+.tesla-charger-section {
+    border-bottom: 10px solid white;
+    border-top: 10px solid white;
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+}
+
+footer {
+    border-left: none !important;
+    border-right: none !important;
 }
