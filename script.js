@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateCarousel();
     }, 5000);
 
-    energyCarousel.addEventListener('mouseleave', () => {
+    energyCarousel.addEventListener(() => {
       autoRotate = setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateCarousel();
@@ -352,3 +352,118 @@ function updateTotalPrice(model) {
   
   document.getElementById('totalPrice').textContent = total.toLocaleString();
 }
+
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const storage = firebase.storage();
+
+document.addEventListener('DOMContentLoaded', function() {
+ 
+  document.querySelectorAll('.btn-primary').forEach(btn => {
+    if (btn.textContent.includes('Verify')) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('verificationModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+
+  // Close modal buttons
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.getElementById('verificationModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  document.getElementById('closeSuccessModal').addEventListener('click', function() {
+    document.getElementById('successModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  document.querySelectorAll('.file-input').forEach(input => {
+    input.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const uploadBox = this.closest('.upload-box');
+      const side = this.dataset.side;
+      
+      if (file) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          uploadBox.classList.add('preview');
+          uploadBox.innerHTML = `
+            <img src="${e.target.result}" alt="License ${side}">
+            <div class="file-info">${file.name}</div>
+          `;
+        }
+        
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+
+  document.getElementById('verificationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const ssn = document.getElementById('ssn').value;
+    const verificationType = document.getElementById('verificationType').value;
+    
+    const licenseFront = document.querySelector('#licenseFront input[type="file"]').files[0];
+    const licenseBack = document.querySelector('#licenseBack input[type="file"]').files[0];
+    
+    try {
+      const frontRef = storage.ref(`verifications/${Date.now()}_front.jpg`);
+      const backRef = storage.ref(`verifications/${Date.now()}_back.jpg`);
+      
+      const frontSnapshot = await frontRef.put(licenseFront);
+      const backSnapshot = await backRef.put(licenseBack);
+      
+      const frontUrl = await frontSnapshot.ref.getDownloadURL();
+      const backUrl = await backSnapshot.ref.getDownloadURL();
+      
+      await db.collection('verifications').add({
+        fullName,
+        email,
+        phone,
+        ssnLast4: ssn,
+        verificationType,
+        licenseFront: frontUrl,
+        licenseBack: backUrl,
+        status: 'pending',
+        submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+        
+      document.getElementById('verificationModal').style.display = 'none';
+      document.getElementById('successModal').style.display = 'block';
+
+      this.reset();
+      document.querySelectorAll('.upload-box').forEach(box => {
+        box.classList.remove('preview');
+        box.innerHTML = `
+          <i class="fas fa-id-card"></i>
+          <span>Driver's License (${box.id === 'licenseFront' ? 'Front' : 'Back'})</span>
+          <input type="file" accept="image/*" class="file-input" data-side="${box.id === 'licenseFront' ? 'front' : 'back'}" required>
+        `;
+      });
+      
+    } catch (error) {
+      console.error('Error submitting verification:', error);
+      alert('There was an error submitting your verification. Please try again.');
+    }
+  });
+});
