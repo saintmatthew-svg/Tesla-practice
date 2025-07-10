@@ -103,3 +103,252 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+const carOptions = {
+  model3: {
+    name: "Model 3",
+    basePrice: 39990,
+    colors: [
+      { name: "Pearl White", price: 0, image: "images/model3-white.jpg" },
+      { name: "Solid Black", price: 1000, image: "images/model3-black.jpg" },
+      { name: "Midnight Silver", price: 1500, image: "images/model3-silver.jpg" },
+      { name: "Deep Blue", price: 1500, image: "images/model3-blue.jpg" },
+      { name: "Red Multi-Coat", price: 2000, image: "images/model3-red.jpg" }
+    ],
+    wheels: [
+      { name: "18\" Aero", price: 0, image: "images/wheel-aero.jpg" },
+      { name: "19\" Sport", price: 1500, image: "images/wheel-sport.jpg" }
+    ],
+    interiors: [
+      { name: "Black", price: 0, image: "images/interior-black.jpg" },
+      { name: "White", price: 1000, image: "images/interior-white.jpg" }
+    ]
+  },
+  modely: {
+    name: "Model Y",
+    basePrice: 47990,
+    colors: [
+      { name: "Pearl White", price: 0, image: "images/modely-white.jpg" },
+      { name: "Solid Black", price: 1000, image: "images/modely-black.jpg" },
+      { name: "Midnight Silver", price: 1500, image: "images/modely-silver.jpg" },
+      { name: "Deep Blue", price: 1500, image: "images/modely-blue.jpg" },
+      { name: "Red Multi-Coat", price: 2000, image: "images/modely-red.jpg" }
+    ],
+    wheels: [
+      { name: "19\" Gemini", price: 0, image: "images/wheel-gemini.jpg" },
+      { name: "20\" Induction", price: 2000, image: "images/wheel-induction.jpg" }
+    ],
+    interiors: [
+      { name: "Black", price: 0, image: "images/interior-black.jpg" },
+      { name: "White", price: 1000, image: "images/interior-white.jpg" }
+    ]
+  },
+  models: {
+    name: "Model S",
+    basePrice: 74990,
+    colors: [
+      { name: "Pearl White", price: 0, image: "images/models-white.jpg" },
+      { name: "Solid Black", price: 1500, image: "images/models-black.jpg" },
+      { name: "Midnight Silver", price: 2000, image: "images/models-silver.jpg" },
+      { name: "Deep Blue", price: 2000, image: "images/models-blue.jpg" },
+      { name: "Red Multi-Coat", price: 2500, image: "images/models-red.jpg" }
+    ],
+    wheels: [
+      { name: "19\" Tempest", price: 0, image: "images/wheel-tempest.jpg" },
+      { name: "21\" Arachnid", price: 4500, image: "images/wheel-arachnid.jpg" }
+    ],
+    interiors: [
+      { name: "Black", price: 0, image: "images/interior-black-premium.jpg" },
+      { name: "Cream", price: 1500, image: "images/interior-cream.jpg" },
+      { name: "White", price: 2000, image: "images/interior-white-premium.jpg" }
+    ]
+  },
+  modelx: {
+    name: "Model X",
+    basePrice: 79990,
+    colors: [
+      { name: "Pearl White", price: 0, image: "images/modelx-white.jpg" },
+      { name: "Solid Black", price: 1500, image: "images/modelx-black.jpg" },
+      { name: "Midnight Silver", price: 2000, image: "images/modelx-silver.jpg" },
+      { name: "Deep Blue", price: 2000, image: "images/modelx-blue.jpg" },
+      { name: "Red Multi-Coat", price: 2500, image: "images/modelx-red.jpg" }
+    ],
+    wheels: [
+      { name: "20\" Cyberstream", price: 0, image: "images/wheel-cyberstream.jpg" },
+      { name: "22\" Turbine", price: 5500, image: "images/wheel-turbine.jpg" }
+    ],
+    interiors: [
+      { name: "Black", price: 0, image: "images/interior-black-premium.jpg" },
+      { name: "Cream", price: 1500, image: "images/interior-cream.jpg" },
+      { name: "White", price: 2000, image: "images/interior-white-premium.jpg" }
+    ]
+  },
+  cybertruck: {
+    name: "Cybertruck",
+    basePrice: 60990,
+    colors: [
+      { name: "Stainless Steel", price: 0, image: "images/cybertruck-steel.jpg" },
+      { name: "Black Wrapped", price: 5000, image: "images/cybertruck-black.jpg" },
+      { name: "White Wrapped", price: 5000, image: "images/cybertruck-white.jpg" }
+    ],
+    wheels: [
+      { name: "20\" All-Terrain", price: 0, image: "images/wheel-allterrain.jpg" },
+      { name: "22\" Cyberwheel", price: 3500, image: "images/wheel-cyberwheel.jpg" }
+    ],
+    interiors: [
+      { name: "Black", price: 0, image: "images/interior-black-cyber.jpg" },
+      { name: "White", price: 2000, image: "images/interior-white-cyber.jpg" }
+    ]
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.btn-primary').forEach(btn => {
+    if (btn.textContent.includes('Order') || btn.textContent.includes('Order Now') || btn.textContent.includes('Order Tesla')) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('customizationModal').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    }
+  });
+
+  document.querySelector('.close-modal').addEventListener('click', function() {
+    document.getElementById('customizationModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+
+  window.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('customizationModal')) {
+      document.getElementById('customizationModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  document.querySelectorAll('.select-model').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const model = this.closest('.model-option').dataset.model;
+      showCustomizationOptions(model);
+    });
+  });
+});
+
+function showCustomizationOptions(model) {
+  const optionsContainer = document.getElementById('customizationOptions');
+  const carData = carOptions[model];
+  
+  optionsContainer.innerHTML = '';
+  
+  const colorsSection = document.createElement('div');
+  colorsSection.className = 'option-section';
+  colorsSection.innerHTML = `
+    <h3>Exterior Color</h3>
+    <div class="option-choices" id="colorChoices"></div>
+  `;
+  
+  const wheelsSection = document.createElement('div');
+  wheelsSection.className = 'option-section';
+  wheelsSection.innerHTML = `
+    <h3>Wheels</h3>
+    <div class="option-choices" id="wheelChoices"></div>
+  `;
+  
+  const interiorsSection = document.createElement('div');
+  interiorsSection.className = 'option-section';
+  interiorsSection.innerHTML = `
+    <h3>Interior</h3>
+    <div class="option-choices" id="interiorChoices"></div>
+  `;
+  
+  const finalizeSection = document.createElement('div');
+  finalizeSection.className = 'finalize-order';
+  finalizeSection.innerHTML = `
+    <button class="btn btn-primary" id="finalizeOrder">Finalize Order</button>
+    <div class="price-summary" style="margin-top: 20px; font-size: 18px;">
+      <strong>Estimated Total: $<span id="totalPrice">${carData.basePrice.toLocaleString()}</span></strong>
+    </div>
+  `;
+  
+  optionsContainer.appendChild(colorsSection);
+  optionsContainer.appendChild(wheelsSection);
+  optionsContainer.appendChild(interiorsSection);
+  optionsContainer.appendChild(finalizeSection);
+  
+  const colorChoices = document.getElementById('colorChoices');
+  carData.colors.forEach((color, index) => {
+    const choice = document.createElement('div');
+    choice.className = 'option-choice' + (index === 0 ? ' selected' : '');
+    choice.dataset.type = 'color';
+    choice.dataset.price = color.price;
+    choice.innerHTML = `
+      <img src="${color.image}" alt="${color.name}">
+      <h4>${color.name}</h4>
+      <p>${color.price > 0 ? '+$' + color.price.toLocaleString() : 'Included'}</p>
+    `;
+    colorChoices.appendChild(choice);
+  });
+  
+  const wheelChoices = document.getElementById('wheelChoices');
+  carData.wheels.forEach((wheel, index) => {
+    const choice = document.createElement('div');
+    choice.className = 'option-choice' + (index === 0 ? ' selected' : '');
+    choice.dataset.type = 'wheel';
+    choice.dataset.price = wheel.price;
+    choice.innerHTML = `
+      <img src="${wheel.image}" alt="${wheel.name}">
+      <h4>${wheel.name}</h4>
+      <p>${wheel.price > 0 ? '+$' + wheel.price.toLocaleString() : 'Included'}</p>
+    `;
+    wheelChoices.appendChild(choice);
+  });
+  
+  const interiorChoices = document.getElementById('interiorChoices');
+  carData.interiors.forEach((interior, index) => {
+    const choice = document.createElement('div');
+    choice.className = 'option-choice' + (index === 0 ? ' selected' : '');
+    choice.dataset.type = 'interior';
+    choice.dataset.price = interior.price;
+    choice.innerHTML = `
+      <img src="${interior.image}" alt="${interior.name}">
+      <h4>${interior.name}</h4>
+      <p>${interior.price > 0 ? '+$' + interior.price.toLocaleString() : 'Included'}</p>
+    `;
+    interiorChoices.appendChild(choice);
+  });
+  
+  optionsContainer.style.display = 'block';
+  
+  document.querySelectorAll('.option-choice').forEach(choice => {
+    choice.addEventListener('click', function() {
+      this.parentNode.querySelectorAll('.option-choice').forEach(sibling => {
+        sibling.classList.remove('selected');
+      });
+      
+      this.classList.add('selected');
+      
+      updateTotalPrice(model);
+    });
+  });
+  
+  document.getElementById('finalizeOrder').addEventListener('click', function() {
+    alert('Thank you for your order! A Tesla representative will contact you shortly.');
+    document.getElementById('customizationModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+}
+
+function updateTotalPrice(model) {
+  const carData = carOptions[model];
+  let total = carData.basePrice;
+  
+  const selectedColor = document.querySelector('#colorChoices .option-choice.selected');
+  total += parseInt(selectedColor.dataset.price);
+  
+  const selectedWheel = document.querySelector('#wheelChoices .option-choice.selected');
+  total += parseInt(selectedWheel.dataset.price);
+  
+  const selectedInterior = document.querySelector('#interiorChoices .option-choice.selected');
+  total += parseInt(selectedInterior.dataset.price);
+  
+  document.getElementById('totalPrice').textContent = total.toLocaleString();
+}
