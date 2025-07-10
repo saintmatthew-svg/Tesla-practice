@@ -1,105 +1,105 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.tesla-carousel .slide');
-    const dots = document.querySelectorAll('.slider-dot');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  const vehicleCarousel = document.querySelector('.vehicle-carousel');
+  if (vehicleCarousel) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dots .dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
     let currentIndex = 0;
-    const slideCount = slides.length;
-    
-    function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
+
+    function updateCarousel() {
+      const slideWidth = slides[0].clientWidth;
+      document.querySelector('.carousel-slides').style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
     }
-    
-    function goToSlide(index) {
-        currentIndex = index;
-        updateSlider();
-    }
-    
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSlider();
-    }
-    
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateSlider();
-    }
-    
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
+
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-    });
-    
-    let slideInterval = setInterval(nextSlide, 7000);
-
-    const track = document.querySelector('.carousel-track');
-    const slides2 = document.querySelectorAll('.carousel-section .slide');
-    const dots2 = document.querySelectorAll('.carousel-section .dot');
-    let currentSlide = 0;
-    const slideCount2 = slides2.length;
-
-    function updateSlide(index) {
-        if (index >= slideCount2) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = slideCount2 - 1;
-        } else {
-            currentSlide = index;
-        }
-        
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-        dots2.forEach(dot => dot.classList.remove('active'));
-        dots2[currentSlide].classList.add('active');
-    }
-
-    const carousel = document.querySelector('.carousel-section .carousel');
-    
-    const prevBtn2 = document.createElement('button');
-    prevBtn2.className = 'slider-btn prev';
-    prevBtn2.innerHTML = '❮';
-    prevBtn2.addEventListener('click', () => {
-        updateSlide(currentSlide - 1);
-    });
-    
-    const nextBtn2 = document.createElement('button');
-    nextBtn2.className = 'slider-btn next';
-    nextBtn2.innerHTML = '❯';
-    nextBtn2.addEventListener('click', () => {
-        updateSlide(currentSlide + 1);
-    });
-    
-    carousel.appendChild(prevBtn2);
-    carousel.appendChild(nextBtn2);
-
-    dots2.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            updateSlide(i);
-        });
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
     });
 
-    let slideInterval2 = setInterval(() => {
-        updateSlide(currentSlide + 1);
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    let autoRotate = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
     }, 5000);
 
-    const carousels = document.querySelectorAll('.slider, .carousel-track');
-    carousels.forEach(carousel => {
-        carousel.addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-            clearInterval(slideInterval2);
-        });
-        carousel.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(nextSlide, 7000);
-            slideInterval2 = setInterval(() => {
-                updateSlide(currentSlide + 1);
-            }, 5000);
-        });
+    vehicleCarousel.addEventListener('mouseenter', () => {
+      clearInterval(autoRotate);
     });
+
+    vehicleCarousel.addEventListener('mouseleave', () => {
+      autoRotate = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }, 5000);
+    });
+  }
+
+  const energyCarousel = document.querySelector('.energy-carousel');
+  if (energyCarousel) {
+    const slides = document.querySelectorAll('.energy-slide');
+    const dots = document.querySelectorAll('.energy-dots .dot');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const slideWidth = slides[0].clientWidth;
+      document.querySelector('.energy-slides').style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+
+    let autoRotate = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }, 5000);
+
+    energyCarousel.addEventListener('mouseleave', () => {
+      autoRotate = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+      }, 5000);
+    });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
 });
