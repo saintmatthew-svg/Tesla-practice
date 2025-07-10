@@ -379,7 +379,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Close modal buttons
   document.querySelectorAll('.close-modal').forEach(btn => {
     btn.addEventListener('click', function() {
       document.getElementById('verificationModal').style.display = 'none';
