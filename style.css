@@ -312,3 +312,62 @@ section a{
         font-size: 0.9rem !important;
     }
 }
+.tesla-charger-section {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  padding: 30px;
+}
+
+.map-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.charger-map {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.charger-info {
+  text-align: center;
+}
+
+.charger-info h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.charger-info p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.stat {
+  font-size: 1.2rem;
+}
+
+.stat strong {
+  display: block;
+  font-size: 2rem;
+  color: #222;
+}
+
+.supercharger span {
+  color: red;
+}
+
+.destination span {
+  color: #555;
+}
