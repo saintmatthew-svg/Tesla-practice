@@ -39,7 +39,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="section-container">
         <div class="video-container">
             <video autoplay muted loop>
                 <source src="videos/Tesla Delivers Itself to New Owner.mp4" type="video/mp4">
@@ -173,7 +173,7 @@
     </section>
 
 
-    <section style="background-image: url('images/Homepage-Card-Megapack-Desktop.avif')">
+    <section class="section-container" style="background-image: url('images/Homepage-Card-Megapack-Desktop.avif')">
         <div class="content">
             <h1>America Heros</h1>
             <p>$1,000 off for military, first responders, teachers and students.</p>
@@ -183,29 +183,57 @@
         </div>
     </section>
 
-    <section style="background-image: url('images/Homepage-Solar-Roof.avif')">
-        <div class="content">
-            <h1>Solar Roof</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
-            <div class="buttons">
-                <button class="order-models">Order Solar Roof</button>
-                <button class="learn-more-btn">learn more</button>
-            </div>
-        </div>
-    </section>
+    <section class="section-container carousel-section">
+  <div class="carousel">
+    <div class="carousel-track">
 
-    <section style="background-image: url('images/Homepage-Solar-Panels.avif')">
-        <div class="content">
-            <h1>Solar Panels</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
-            <div class="buttons">
-                <button class="order-models">Order Solar Panels</button>
-                <button class="learn-more-btn">learn more</button>
-            </div>
+      <div class="slide">
+        <img src="images/Homepage-Solar-Panels.avif" alt="Solar Panels">
+        <div class="slide-content">
+          <h2>Solar Panels</h2>
+          <p>Use Solar Energy to Power Your Home and Charge Your Tesla</p>
+          <div class="buttons">
+            <button class="blue">Order Now</button>
+            <button class="white">Learn More</button>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <footer style="background-color: #000; color: #fff; padding: 2rem; font-family: Arial, sans-serif;">
+      <div class="slide">
+        <img src="images/Homepage-Card-Powerwall-Desktop.avif" alt="Powerwall">
+        <div class="slide-content">
+          <h2>Powerwall</h2>
+          <p>Keep Your Lights On During Outages</p>
+          <div class="buttons">
+            <button class="blue">Order Now</button>
+            <button class="white">Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="images/Homepage-Solar-Roof.avif" alt="Solar Roof">
+        <div class="slide-content">
+          <h2>Solar Roof</h2>
+          <p>Generate Clean Energy With Your Roof</p>
+          <div class="buttons">
+            <button class="blue">Order Now</button>
+            <button class="white">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dotss">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+
+    <footer style="background-color: #ffffff; color: #000000; padding: 2rem; font-family: Arial, sans-serif;">
   <div style="max-width: 1200px; margin: 0 auto;">
     
     <div style="margin-bottom: 2rem; font-size: 0.8rem; line-height: 1.5;">
@@ -277,6 +305,30 @@
             dot.addEventListener('click', () => goToSlide(index));
         });
         setInterval(nextSlide, 7000);
+
+        const track = document.querySelector('.carousel-track');
+        const dotss = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+
+        function updateSlide(index) {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
+
+        dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            currentSlide = i;
+            updateSlide(currentSlide);
+        });
+    });
+
+  // Optional auto-slide every 5 seconds
+    setInterval(() => {
+        currentSlide = (currentSlide + 1) % dotss.length;
+        updateSlide(currentSlide);
+    }, 5000);
+
     </script>
 </body>
 </html>
