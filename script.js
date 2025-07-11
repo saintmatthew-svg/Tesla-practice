@@ -219,12 +219,13 @@ document.addEventListener('DOMContentLoaded', function() {
     updateOrderSummary();
   }
 
-  // Order buttons - open new page
+  // In script.js, update the order button click handler
   document.querySelectorAll('.btn-primary').forEach(btn => {
     if (btn.textContent.includes('Order') || btn.textContent.includes('Order Now') || btn.textContent.includes('Order Tesla')) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        window.open('order.html', '_blank');
+        const model = this.getAttribute('data-model') || 'model3'; // Default to Model 3 if no data-model
+        window.open(`order.html?model=${model}`, '_blank');
       });
     }
   });
