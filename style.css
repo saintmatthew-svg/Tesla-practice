@@ -185,6 +185,8 @@ img {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  border: 10px solid white;
+  border-radius: 10px;
 }
 
 .video-section video {
