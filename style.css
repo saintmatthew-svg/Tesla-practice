@@ -978,6 +978,7 @@ img {
 .center-nav a:hover .model-hover-card {
   opacity: 1;
   visibility: visible;
+  animation: fadeIn 2s ease forwards;
 }
 
 .model-hover-card img {
@@ -1062,4 +1063,499 @@ img {
   opacity: 1;
   visibility: visible;
   animation: fadeIn 0.3s ease forwards;
+}
+
+.shop-hover-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+
+.right-nav a:hover .shop-hover-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(5px);
+}
+
+.shop-menu-column {
+  flex: 1;
+  min-width: 0;
+}
+
+.shop-menu-column h3 {
+  font-size: 14px;
+  color: var(--tesla-dark);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--tesla-light-gray);
+  white-space: nowrap;
+}
+
+.shop-item {
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.shop-item:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.shop-item img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.shop-item h4 {
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: var(--tesla-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop-item p {
+  font-size: 13px;
+  color: var(--tesla-gray);
+  margin-bottom: 8px;
+}
+
+.shop-item .btn {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+.right-nav {
+  position: relative;
+}
+
+.right-nav a[href=""]:first-child {
+  position: relative;
+}
+
+.order-customization {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.order-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.order-header {
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.order-header h1 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.order-subtitle {
+    font-size: 18px;
+    color: var(--tesla-gray);
+    margin-bottom: 10px;
+}
+
+.order-price {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.order-section {
+    display: none;
+    margin-bottom: 30px;
+}
+
+.order-section.active {
+    display: block;
+}
+
+.order-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.color-option {
+    border: 1px solid var(--tesla-light-gray);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-option.selected {
+    border-color: var(--tesla-btn);
+    background-color: rgba(38, 87, 247, 0.05);
+}
+
+.color-sample {
+    width: 100%;
+    height: 80px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.color-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wheel-options, .interior-options, .drivetrain-options {
+    display: grid;
+    gap: 15px;
+}
+
+.wheel-option, .interior-option {
+    border: 1px solid var(--tesla-light-gray);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.wheel-option.selected, .interior-option.selected {
+    border-color: var(--tesla-btn);
+    background-color: rgba(38, 87, 247, 0.05);
+}
+
+.wheel-option img, .interior-option img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.wheel-info, .interior-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.drivetrain-option {
+    border: 1px solid var(--tesla-light-gray);
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.drivetrain-option.selected {
+    border-color: var(--tesla-btn);
+    background-color: rgba(38, 87, 247, 0.05);
+}
+
+.drivetrain-icon {
+    font-size: 30px;
+    color: var(--tesla-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.drivetrain-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.drivetrain-info p {
+    font-size: 14px;
+    color: var(--tesla-gray);
+    margin-bottom: 3px;
+}
+
+.drivetrain-info span {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin-top: 10px;
+}
+
+.order-summary {
+    background-color: var(--tesla-white);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 100px;
+    align-self: start;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--tesla-light-gray);
+}
+
+.summary-header h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.summary-header .summary-price {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.summary-details {
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--tesla-light-gray);
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.summary-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.summary-actions .btn {
+    flex: 1;
+    text-align: center;
+}
+
+.order-navigation {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--tesla-light-gray);
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    background-color: transparent;
+    border: 1px solid var(--tesla-light-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-steps {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-step {
+    font-size: 14px;
+    color: var(--tesla-gray);
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-step.active {
+    color: var(--tesla-dark);
+    font-weight: 500;
+}
+
+.nav-step.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--tesla-btn);
+}
+
+@media (max-width: 1024px) {
+    .order-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-summary {
+        position: static;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .color-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-navigation {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .nav-steps {
+        order: -1;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+  .order-container {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+  
+  .order-summary {
+    position: static;
+    margin-top: 30px;
+  }
+  
+  .color-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .wheel-options, .interior-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .drivetrain-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .order-navigation {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-steps {
+    order: -1;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-step {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-header h1 {
+    font-size: 32px;
+  }
+  
+  .order-subtitle {
+    font-size: 16px;
+  }
+  
+  .order-price {
+    font-size: 24px;
+  }
+  
+  .order-section h2 {
+    font-size: 20px;
+  }
+  
+  .drivetrain-option {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .drivetrain-icon {
+    margin-bottom: 10px;
+  }
+  
+  .summary-actions {
+    flex-direction: column;
+  }
+  
+  .summary-actions .btn {
+    width: 100%;
+  }
+}
+
+.customization-modal {
+  display: none !important;
+}
+
+.order-customization {
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.color-option, .wheel-option, .interior-option, .drivetrain-option {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: var(--tesla-btn);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--tesla-dark);
+}
+
+.nav-btn {
+  white-space: nowrap;
+}
+
+.nav-steps {
+  overflow-x: auto;
+  padding-bottom: 5px;
 }

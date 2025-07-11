@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Your Tesla | Tesla</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="currentColor" d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7m0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7M308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7"></path>
+                </svg>
+            </a>
+            <nav class="right-nav">
+                <a href="index.html" class="close-btn">Close</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="order-customization">
+        <div class="order-container">
+            <div class="order-header">
+                <h1>Model 3</h1>
+                <div class="order-subtitle">Long Range Rear-Wheel Drive</div>
+                <div class="order-price">$39,990</div>
+            </div>
+
+            <div class="order-sections">
+                <section class="order-section active" id="section-color">
+                    <h2>Select Color</h2>
+                    <div class="color-options">
+                        <div class="color-option selected" data-color="white" data-price="0">
+                            <div class="color-sample" style="background-color: #ffffff;"></div>
+                            <div class="color-info">
+                                <span>Pearl White Multi-Coat</span>
+                                <span>Included</span>
+                            </div>
+                        </div>
+                        <div class="color-option" data-color="black" data-price="1000">
+                            <div class="color-sample" style="background-color: #000000;"></div>
+                            <div class="color-info">
+                                <span>Solid Black</span>
+                                <span>+ $1,000</span>
+                            </div>
+                        </div>
+                        <div class="color-option" data-color="blue" data-price="1000">
+                            <div class="color-sample" style="background-color: #2d5c88;"></div>
+                            <div class="color-info">
+                                <span>Deep Blue Metallic</span>
+                                <span>+ $1,000</span>
+                            </div>
+                        </div>
+                        <div class="color-option" data-color="red" data-price="2000">
+                            <div class="color-sample" style="background-color: #c00e0e;"></div>
+                            <div class="color-info">
+                                <span>Red Multi-Coat</span>
+                                <span>+ $2,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="order-section" id="section-wheels">
+                    <h2>Select Wheels</h2>
+                    <div class="wheel-options">
+                        <div class="wheel-option selected" data-wheel="aero" data-price="0">
+                            <img src="images/wheel-aero.jpg" alt="18\" Aero Wheels">
+                            <div class="wheel-info">
+                                <span>18" Aero Wheels</span>
+                                <span>Included</span>
+                            </div>
+                        </div>
+                        <div class="wheel-option" data-wheel="sport" data-price="1500">
+                            <img src="images/wheel-sport.jpg" alt="19\" Sport Wheels">
+                            <div class="wheel-info">
+                                <span>19" Sport Wheels</span>
+                                <span>+ $1,500</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="order-section" id="section-interior">
+                    <h2>Select Interior</h2>
+                    <div class="interior-options">
+                        <div class="interior-option selected" data-interior="black" data-price="0">
+                            <img src="images/interior-black.jpg" alt="Black Interior">
+                            <div class="interior-info">
+                                <span>All Black Interior</span>
+                                <span>Included</span>
+                            </div>
+                        </div>
+                        <div class="interior-option" data-interior="white" data-price="1000">
+                            <img src="images/interior-white.jpg" alt="White Interior">
+                            <div class="interior-info">
+                                <span>Black and White Interior</span>
+                                <span>+ $1,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="order-section" id="section-drivetrain">
+                    <h2>Select Drivetrain</h2>
+                    <div class="drivetrain-options">
+                        <div class="drivetrain-option selected" data-drivetrain="rwd" data-price="0">
+                            <div class="drivetrain-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="drivetrain-info">
+                                <h3>Rear-Wheel Drive</h3>
+                                <p>363 mi Range (EPA est.)</p>
+                                <p>125 mph Top Speed</p>
+                                <p>4.9 sec 0-60 mph</p>
+                                <span>Included</span>
+                            </div>
+                        </div>
+                        <div class="drivetrain-option" data-drivetrain="awd" data-price="8000">
+                            <div class="drivetrain-icon">
+                                <i class="fas fa-car-side"></i>
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                            <div class="drivetrain-info">
+                                <h3>All-Wheel Drive</h3>
+                                <p>341 mi Range (EPA est.)</p>
+                                <p>125 mph Top Speed</p>
+                                <p>4.2 sec 0-60 mph</p>
+                                <span>+ $8,000</span>
+                            </div>
+                        </div>
+                        <div class="drivetrain-option" data-drivetrain="performance" data-price="12000">
+                            <div class="drivetrain-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="drivetrain-info">
+                                <h3>Performance</h3>
+                                <p>296 mi Range (EPA est.)</p>
+                                <p>162 mph Top Speed</p>
+                                <p>3.1 sec 0-60 mph</p>
+                                <span>+ $12,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="order-summary">
+                <div class="summary-header">
+                    <h2>Your Model 3</h2>
+                    <div class="summary-price">$39,990</div>
+                </div>
+                <div class="summary-details">
+                    <div class="summary-item">
+                        <span>Pearl White Multi-Coat</span>
+                        <span>Included</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>18" Aero Wheels</span>
+                        <span>Included</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>All Black Interior</span>
+                        <span>Included</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Rear-Wheel Drive</span>
+                        <span>Included</span>
+                    </div>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span>$39,990</span>
+                </div>
+                <div class="summary-actions">
+                    <button class="btn btn-secondary">Save Design</button>
+                    <button class="btn btn-primary">Continue to Payment</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-navigation">
+            <button class="nav-btn prev-btn" disabled><i class="fas fa-chevron-left"></i> Back</button>
+            <div class="nav-steps">
+                <span class="nav-step active" data-section="color">1. Color</span>
+                <span class="nav-step" data-section="wheels">2. Wheels</span>
+                <span class="nav-step" data-section="interior">3. Interior</span>
+                <span class="nav-step" data-section="drivetrain">4. Drivetrain</span>
+            </div>
+            <button class="nav-btn next-btn">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
