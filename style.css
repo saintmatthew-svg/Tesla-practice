@@ -59,13 +59,15 @@ img {
 }
 
 .btn-secondary {
-  background-color: rgba(255, 255, 255, 0.65);
-  color: var(--tesla-dark);
+  background-color: var(--tesla-white);
+  color: var(--tesla-white);
   margin-left: 15px;
+  border: 1px solid var(--tesla-white);
 }
 
 .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.85);
+  color: var(--tesla-dark);
 }
 
 .site-header {
