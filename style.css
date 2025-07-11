@@ -1563,3 +1563,11 @@ img {
   overflow-x: auto;
   padding-bottom: 5px;
 }
+
+.nav-steps span {
+  cursor: pointer;
+}
+
+.nav-step:hover {
+  background-color: rgba(223, 209, 209, 0.315);
+}
