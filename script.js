@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Header scroll effect
   const header = document.querySelector('.site-header');
   if (header) {
     window.addEventListener('scroll', function() {
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Carousel functionality
   const vehicleCarousel = document.querySelector('.vehicle-carousel');
   if (vehicleCarousel) {
     const slides = document.querySelectorAll('.carousel-slide');
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Energy carousel
   const energyCarousel = document.querySelector('.energy-carousel');
   if (energyCarousel) {
     const slides = document.querySelectorAll('.energy-slide');
@@ -103,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Order page functionality
   if (document.querySelector('.order-customization')) {
     const sections = document.querySelectorAll('.order-section');
     const navSteps = document.querySelectorAll('.nav-step');
@@ -154,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Option selection
     document.querySelectorAll('.color-option, .wheel-option, .interior-option, .drivetrain-option').forEach(option => {
       option.addEventListener('click', function() {
         const parent = this.parentElement;
@@ -166,18 +161,15 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Update order summary
     function updateOrderSummary() {
       const basePrice = 39990;
       let total = basePrice;
       
-      // Get selected options
       const selectedColor = document.querySelector('.color-option.selected');
       const selectedWheel = document.querySelector('.wheel-option.selected');
       const selectedInterior = document.querySelector('.interior-option.selected');
       const selectedDrivetrain = document.querySelector('.drivetrain-option.selected');
       
-      // Update summary items
       document.querySelectorAll('.summary-item')[0].innerHTML = `
         <span>${selectedColor.querySelector('span:first-child').textContent}</span>
         <span>${selectedColor.dataset.price > 0 ? '+$' + parseInt(selectedColor.dataset.price).toLocaleString() : 'Included'}</span>
@@ -198,39 +190,33 @@ document.addEventListener('DOMContentLoaded', function() {
         <span>${selectedDrivetrain.dataset.price > 0 ? '+$' + parseInt(selectedDrivetrain.dataset.price).toLocaleString() : 'Included'}</span>
       `;
       
-      // Calculate total
       total += parseInt(selectedColor.dataset.price);
       total += parseInt(selectedWheel.dataset.price);
       total += parseInt(selectedInterior.dataset.price);
       total += parseInt(selectedDrivetrain.dataset.price);
       
-      // Update total price
       document.querySelector('.summary-price').textContent = '$' + total.toLocaleString();
       document.querySelector('.summary-total span:last-child').textContent = '$' + total.toLocaleString();
     }
 
-    // Close button
     document.querySelector('.close-btn')?.addEventListener('click', function() {
       window.close();
     });
 
-    // Initialize
     showCurrentSection();
     updateOrderSummary();
   }
 
-  // In script.js, update the order button click handler
   document.querySelectorAll('.btn-primary').forEach(btn => {
     if (btn.textContent.includes('Order') || btn.textContent.includes('Order Now') || btn.textContent.includes('Order Tesla')) {
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        const model = this.getAttribute('data-model') || 'model3'; // Default to Model 3 if no data-model
+        const model = this.getAttribute('data-model');
         window.open(`order.html?model=${model}`, '_blank');
       });
     }
   });
 
-  // Verification modal
   document.querySelectorAll('.btn-primary').forEach(btn => {
     if (btn.textContent.includes('Verify')) {
       btn.addEventListener('click', function(e) {
@@ -276,7 +262,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Firebase initialization
   if (typeof firebase !== 'undefined') {
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",

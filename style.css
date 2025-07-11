@@ -59,14 +59,13 @@ img {
 }
 
 .btn-secondary {
-  background-color: var(--tesla-white);
+  background-color: var(--tesla-white) !important;
   color: var(--tesla-white);
   margin-left: 15px;
-  border: 1px solid var(--tesla-white);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.664) !important;
   color: var(--tesla-dark);
 }
 
@@ -153,6 +152,7 @@ img {
 
 .hero-content p {
   font-size: 30px;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 
